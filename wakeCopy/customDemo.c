@@ -101,7 +101,6 @@ void wdt_c_handler()
   if (secCount >= 5) {/* 10/sec */
 
     secCount = 0;
-
     redrawScreen = 1;
 
   }
@@ -154,7 +153,8 @@ void main(){
 static unsigned char row = screenHeight/2, col = screenWidth/2; 
 void update_shape()
 {
-  if(switches & SW1){
+  drawMyShape(col,row,COLOR_WHITE);
+  /*if(switches & SW1){
     clearScreen(COLOR_BLACK);
     //drawMyShape(col,row,COLOR_BLACK);
     drawMyShape(col--,row,COLOR_WHITE);}
@@ -170,6 +170,6 @@ void update_shape()
     clearScreen(COLOR_BLACK);
     // drawMyShape(col,row,COLOR_BLACK);
     drawMyShape(col++,row,COLOR_WHITE);}
-  
+  */
 
 }

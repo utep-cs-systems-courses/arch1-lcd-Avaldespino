@@ -8,11 +8,9 @@ void drawMyShape(int cc,int cr,u_int colorBGR)
 {
   for(int r = 0; r <= 10; r++) {
     int col_range = (15 - r > 10) ? 10 : 15 - r;
-    for(int c = 0; c < col_range; c++) {
-	drawPixel(cc - c, cr - r, colorBGR);
-	drawPixel(cc + c, cr - r, colorBGR);
-	drawPixel(cc - c, cr + r, colorBGR);
-	drawPixel(cc + c, cr + r, colorBGR);
+    for(int c = 0; c < 20; c++) {
+      drawPixel(c+1,r,COLOR_WHITE);
+      drawPixel(c-1,r,COLOR_WHITE);
       }
       } 
 }
