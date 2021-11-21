@@ -6,13 +6,12 @@
 
 void drawMyShape(int cc,int cr,u_int colorBGR)
 {
-  for(int r = 0; r <= 10; r++) {
-    int col_range = (15 - r > 10) ? 10 : 15 - r;
-    for(int c = 0; c < 20; c++) {
-      drawPixel(c+1,r,COLOR_WHITE);
-      drawPixel(c-1,r,COLOR_WHITE);
-      }
-      } 
+  for(cr;cr<10;cr++){
+    for(cc;cc<10;cc++){
+      drawPixel(cc+1,cr,COLOR_WHITE);
+      drawPixel(cc-1,cr,COLOR_WHITE);
+    }
+  }
 }
  
 
