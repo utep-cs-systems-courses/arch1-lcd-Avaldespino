@@ -139,7 +139,7 @@ void main(){
   while(1)
     {
       if(redrawScreen){
-	redrawScreen = 1;
+	redrawScreen = 0;
 	update_shape();
       }
 
@@ -150,26 +150,26 @@ void main(){
     P1OUT |= LED;	/* led on */
   }
 
-static unsigned char row = screenHeight/2, col = screenWidth/2; 
+ 
 void update_shape()
 {
-  drawMyShape(col,row,COLOR_WHITE);
-  /*if(switches & SW1){
-    clearScreen(COLOR_BLACK);
-    //drawMyShape(col,row,COLOR_BLACK);
-    drawMyShape(col--,row,COLOR_WHITE);}
-  if(switches & SW2){
-    clearScreen(COLOR_BLACK);
-    //drawMyShape(col,row,COLOR_BLACK);
-    drawMyShape(col,row++,COLOR_WHITE);}
-  if(switches & SW3){
-    clearScreen(COLOR_BLACK);
-    // drawMyShape(col,row,COLOR_BLACK);
-    drawMyShape(col,row--,COLOR_WHITE);}
-  if(switches & SW4){
-    clearScreen(COLOR_BLACK);
-    // drawMyShape(col,row,COLOR_BLACK);
-    drawMyShape(col++,row,COLOR_WHITE);}
-  */
+  short originRow = LONG_EDGE_PIXELS/2;
+  short originCol = SHORT_EDGE_PIXELS/2;
+  
+  /*for(int row=0;row < 10;row++){
+    for(int col = 0; col < 20; col++){
+      drawPixel(originCol+col,originRow+row,COLOR_WHITE);
+      drawPixel(originCol-col,originRow+row,COLOR_WHITE);
+    }
+    }*/
+  int col_limit = 10;
+  for(int row = 0; row <= 10;row++){
+    col_limit--;
+    for(int col = 0; col<=col_limit;col++ ){
+      drawPixel(originCol+col,originRow+row,COLOR_WHITE);
+      drawPixel(originCol-col,originRow-row,COLOR_WHITE);
+     
+    }
+  }
 
 }

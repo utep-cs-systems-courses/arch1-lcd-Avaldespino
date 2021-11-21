@@ -6,11 +6,15 @@
 
 void drawMyShape(int cc,int cr,u_int colorBGR)
 {
-  for(cr;cr<10;cr++){
-    for(cc;cc<10;cc++){
-      drawPixel(cc+1,cr,COLOR_WHITE);
-      drawPixel(cc-1,cr,COLOR_WHITE);
-    }
+  
+  short originRow = LONG_EDGE_PIXELS/2;
+  short originCol = SHORT_EDGE_PIXELS/2;
+
+  for(short c = 0; c<30;c++){
+    drawPixel(originCol+c,originRow+c,COLOR_WHITE);
+    drawPixel(originCol+c,originRow-c,COLOR_WHITE);
+    drawPixel(originCol-c,originRow+c,COLOR_WHITE);
+    drawPixel(originCol-c,originRow-c,COLOR_WHITE);
   }
 }
  
