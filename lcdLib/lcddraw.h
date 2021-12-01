@@ -7,7 +7,7 @@
 /** Draw my shape at given center
  *  x
  */
-void drawMyShape(int cc, int cr, u_int colorBGR);
+void drawMyShape(int columnMax,int rowMax,u_int colorBGR);
 /** Draw single pixel at col, row 
  *
  *  \param col Column to draw to

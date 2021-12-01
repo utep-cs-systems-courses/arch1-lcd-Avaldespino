@@ -4,17 +4,20 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 
-void drawMyShape(int cc,int cr,u_int colorBGR)
+void drawMyShape(int columnMax,int rowMax,u_int colorBGR)
 {
   
   short originRow = LONG_EDGE_PIXELS/2;
   short originCol = SHORT_EDGE_PIXELS/2;
 
-  for(short c = 0; c<30;c++){
-    drawPixel(originCol+c,originRow+c,COLOR_WHITE);
-    drawPixel(originCol+c,originRow-c,COLOR_WHITE);
-    drawPixel(originCol-c,originRow+c,COLOR_WHITE);
-    drawPixel(originCol-c,originRow-c,COLOR_WHITE);
+  
+  for(int row = 0; row <= rowMax;row++){
+    columnMax--;
+    for(int col = 0; col<=columnMax;col++ ){
+      drawPixel(originCol+col,originRow+row,colorBGR);
+      drawPixel(originCol-col,originRow-row,colorBGR);
+     
+    }
   }
 }
  

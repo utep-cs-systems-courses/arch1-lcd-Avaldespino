@@ -96,15 +96,19 @@ update_shape()
   static unsigned char row = screenHeight / 2, col = screenWidth / 2;
   static char blue = 31, green = 0, red = 31;
   static unsigned char step = 0;
-  if (switches & SW4) return;
+  if (switches & SW4){
+    return;
+  }
+  P1OUT |= LED;
   if (step <= 60) {
     int startCol = col - step;
     int endCol = col + step;
     int width = 1 + endCol - startCol;
     // a color in this BGR encoding is BBBB BGGG GGGR RRRR
     unsigned int color = (blue << 11) | (green << 5) | red;
-    fillRectangle(startCol, row+step, width, 1, color);
-    fillRectangle(startCol, row-step, width, 1, color);
+    //fillRectangle(startCol, row+step, width, 1, color);
+    //fillRectangle(startCol, row-step, width, 1, color);
+    drawMyShape(step,step,color);
     if (switches & SW3) green = (green + 1) % 64;
     if (switches & SW2) blue = (blue + 2) % 32;
     if (switches & SW1) red = (red - 3) % 32;
