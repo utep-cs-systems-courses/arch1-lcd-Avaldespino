@@ -81,6 +81,7 @@ void main()
     if (redrawScreen) {
       redrawScreen = 0;
       update_shape();
+      drawString8x12(10,90,"Test",COLOR_WHITE,COLOR_BLACK);
     }
     P1OUT &= ~LED;	/* led off */
     or_sr(0x10);	/**< CPU OFF */

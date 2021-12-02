@@ -136,10 +136,12 @@ void main(){
   or_sr(0x8);	              /**< GIE (enable interrupts) */
   
   clearScreen(COLOR_BLACK);
+  
   while(1)
     {
       if(redrawScreen){
 	redrawScreen = 0;
+	//drawString8x12(10,90,"Test",COLOR_PINK,COLOR_WHITE);
 	update_shape();
       }
 
@@ -147,29 +149,46 @@ void main(){
     }
     P1OUT &= ~LED;	/* led off */
     or_sr(0x10);	/**< CPU OFF */
-    P1OUT |= LED;	/* led on */
+    //P1OUT |= LED;	/* led on */
   }
 
  
 void update_shape()
 {
   short originRow = LONG_EDGE_PIXELS/2;
+
   short originCol = SHORT_EDGE_PIXELS/2;
-  
+
+
+
   /*for(int row=0;row < 10;row++){
+
     for(int col = 0; col < 20; col++){
+
       drawPixel(originCol+col,originRow+row,COLOR_WHITE);
+
       drawPixel(originCol-col,originRow+row,COLOR_WHITE);
+
     }
+
     }*/
+
   int col_limit = 10;
+
   for(int row = 0; row <= 10;row++){
+
     col_limit--;
+
     for(int col = 0; col<=col_limit;col++ ){
+
       drawPixel(originCol+col,originRow+row,COLOR_WHITE);
+
       drawPixel(originCol-col,originRow-row,COLOR_WHITE);
-     
+
+
+
     }
+
   }
 
 }
